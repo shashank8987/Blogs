@@ -1,0 +1,14 @@
+<%- include("./partials/header")  %>
+
+<div class="mb-3">
+<form action="/add/blogs" method="post">
+    <label for="exampleFormControlInput1" class="form-label d-flex">Blogs</label>
+    <input type="text"  name="blog" class="form-control" id="blog" placeholder="Add Blog">
+    <input type="text"  name="author" class="form-control" id="author" placeholder="Author">
+    <button type="submit" class="btn btn-primary-md">Add</button>
+</form>
+</div>
+
+
+
+<%- include("./partials/footer")  %>
