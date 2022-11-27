@@ -1,14 +1,29 @@
 <%- include("./partials/header")  %>
-
+<div class="container">
 <div class="mb-3">
 <form action="/add/blogs" method="post">
-    <label for="exampleFormControlInput1" class="form-label d-flex">Blogs</label>
-    <input type="text"  name="blog" class="form-control" id="blog" placeholder="Add Blog">
-    <input type="text"  name="author" class="form-control" id="author" placeholder="Author">
-    <button type="submit" class="btn btn-primary-md">Add</button>
+    <div class="container d-flex my-4 mx-4" style="background-color: rgb(51, 51, 65);color:aliceblue;justify-content: center;align-items: center;"><h3>Add your Blogs here</h3></div>
+    <input type="text"  name="blog" class="form-control my-4 mx-4" id="blog" placeholder="Add Blog">
+    <input type="text"  name="author" class="form-control my-3 mx-4" id="author" placeholder="Author">
+    <input type="submit" value="Add Todo" class="btn btn-sm btn-dark mx-4 my-1">
 </form>
 </div>
 
+<ul class="list-group my-5">
+    <% blog.forEach(todos => { %>
+        
+    <li style="background-color: rgba(48, 38, 34, 0.566);border-radius: 9%;color: antiquewhite;" class="list-group-item"><p style="font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;font-weight:300;font-size: large;">Blog: <%= todos.blog %> </p>
+        <br>
+        
+        <p style="font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;font-weight:200;font-size: large;">Author: <%= todos.author %> </p> 
+        
+        <br>
+        <a href="/delete/blog/<%= todos._id %>"
+            class="btn btn-danger btn-sm">Delete</a></li>
+        
+            <hr style="font-weight: bolder;">
+    <% }) %>
 
-
+</ul>
+</div>
 <%- include("./partials/footer")  %>

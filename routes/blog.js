@@ -8,7 +8,7 @@ router.post("/add/blogs",(req,res)=>{
     const newBlog=new Blog({
         blog:blog,
         author:author
-                })
+        })
     newBlog
         .save()
         .then(()=>{
@@ -19,3 +19,16 @@ router.post("/add/blogs",(req,res)=>{
                 console.log(err);
             })
 })
+router.get("/delete/blog/:id",(req,res)=>{
+    const id=req.params.id;
+    Blog.deleteOne({_id:id})
+        .then(()=>{
+            console.log("Blog was deleted successfully");
+            res.redirect("/")
+        })
+        .catch((err)=>{
+            console.log(err);
+        })
+})
+
+module.exports=router
